@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/showpage/{id}','HomeController@show');
 
 Route::resource('home', 'ArticleUserController');
+Route::get('/pdf','ArticleUserController@showpdf');
 
 Route::resource('admin/page','ArticleAdminController');
 

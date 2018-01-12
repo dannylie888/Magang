@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use File;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 
 class ArticleUserController extends Controller
@@ -19,6 +20,13 @@ class ArticleUserController extends Controller
   public function __construct()
   {
     $this->middleware('auth');
+  }
+
+  public function showpdf()
+  {
+    $pdf = PDF::loadView('pdf');
+    $pdf->setPaper('A4', 'landscape');
+    return $pdf->stream();
   }
   /**
   * Display a listing of the resource.
